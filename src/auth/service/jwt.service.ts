@@ -24,7 +24,7 @@ export class JwtService {
 
   // Validates the user using the decoded information
   public async validateUser(decoded: any): Promise<Auth> {
-    return this.repository.findOne(decoded.id);
+    return this.repository.findOne({ where: { id: decoded.id } });
   }
 
   // Generates a JWT token for the provided user
